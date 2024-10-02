@@ -1,0 +1,24 @@
+services:
+  server_api:
+    build:
+      context: ./server_api
+    ports:
+      - "3000:3000"
+    environment:
+      - API_FOR_REDIRECT=http://redirect_api:4000/endpoint
+    depends_on:
+      - redirect_api
+    networks:
+      - api-network
+
+  redirect_api:
+    build:
+      context: ./redirect_api
+    ports:
+      - "4000:4000"
+    networks:
+      - api-network
+
+networks:
+  api-network:
+    driver: bridge
