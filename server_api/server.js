@@ -27,7 +27,7 @@ app.post('/message-to-cora', async (req, res) => {
     const dadosRecebidos = req.body;
     console.log("Dados Recebidos", dadosRecebidos);
 
-const url = process.env.API_FOR_REDIRECT || 'http://localhost:4000/endpoint';
+const url = process.env.API_FOR_REDIRECT || 'https://teams-endpoint-hml.1kusz6bgmkpj.br-sao.codeengine.appdomain.cloud';
 
     const resposta = await axios.post(url, dadosRecebidos, {
       headers: {
